@@ -2,4 +2,4 @@
 
 - Ubuntu
 - Visual Studio Code
-- ModelSim
+- ModelSim 10.6
