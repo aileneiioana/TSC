@@ -1,1 +1,0 @@
-../TSC_lab2/work/
