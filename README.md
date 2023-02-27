@@ -21,3 +21,4 @@
 - git config --global credential.helper store
 - !NU mai vreau parola 
 - Tema: sa gasesc comanda care sterge salvarea credentialelor: git config --global --unset credential. helper.
+- ssh-keygen -t rsa -b 4096 -C "your_email@example.com" (from ~/.ssh)
