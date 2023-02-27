@@ -1,7 +1,7 @@
 # TSC
 
 
-#Lab 1
+# Lab 1
 - Ubuntu
 - Visual Studio Code
 - ModelSim 10.6
