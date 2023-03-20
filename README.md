@@ -30,6 +30,6 @@
 # Lab 4
 - adaugare camp de rezultat la lab 3
 
-#Lab 5
+# Lab 5
 - TEMA1: random write_pointer & read_pointer
 - TEMA2: using interface for DUT and TB
