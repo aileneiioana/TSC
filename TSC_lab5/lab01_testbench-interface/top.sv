@@ -64,7 +64,7 @@ module top;
     end
   end
 
-  tb_ifc tbintf(.clk(clk));
+  tb_ifc tbintf(.clk(clk), .test_clk(test_clk));
   //tb_ifc tbintfTEST(.clk(test_clk));
 
   instr_register_test test (tbintf.TEST);

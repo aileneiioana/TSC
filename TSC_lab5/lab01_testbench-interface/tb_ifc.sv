@@ -2,7 +2,7 @@
  * A SystemVerilog testbench for an instruction register; This file
  * contains the interface to connect the testbench to the design
  **********************************************************************/
-interface tb_ifc (input logic clk);
+interface tb_ifc (input logic clk, input logic test_clk);
   //timeunit 1ns/1ns;
 
   // user-defined types are defined in instr_register_pkg.sv
@@ -18,7 +18,7 @@ interface tb_ifc (input logic clk);
     address_t      read_pointer;
     instruction_t  instruction_word;
 
-   clocking tb_cb @(clk);
+   clocking tb_cb @(test_clk);
     output   load_en;
     output   reset_n;
     output   operand_a;
