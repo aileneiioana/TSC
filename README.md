@@ -33,3 +33,7 @@
 # Lab 5
 - TEMA1: random write_pointer & read_pointer
 - TEMA2: using interface for DUT and TB
+
+# Lab 6
+- interfata cu modport
+- tools
