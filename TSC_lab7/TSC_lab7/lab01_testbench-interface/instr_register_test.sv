@@ -25,7 +25,9 @@ module instr_register_test
   parameter NUMBER_OF_TRANSACTION = 100;
   int seed = 555;
   int number_of_errors = 0;
-  result_t [32] expected;
+  instruction_t actual [0:31];
+  result_t expected [0:31];
+
   initial begin
     $display("\n\n***********************************************************");
     $display(    "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
@@ -58,15 +60,18 @@ module instr_register_test
 
       //TODO read_pointer random 
    // @(posedge tbintf) tbintf.read_pointer <= $unsigned($random)%32;
-      @(posedge tbintf.test_clk) tbintf.read_pointer <= i;
+      @(posedge tbintf.test_clk) tbintf.read_pointer <= i; 
+      actual[tbintf.read_pointer].result = (tbintf.instruction_word.result);
       @(negedge tbintf.test_clk) print_results; 
-      check_results(tbintf.operand_a, tbintf.operand_b,tbintf.opcode, tbintf.instruction_word.result);
+      
+     
     end
-
     @(posedge tbintf.test_clk) ;
+    //limitations: just 32 positions/test
+    check_results();
      $display("\nErrors : %d", number_of_errors);
-    //if(number_of_errors)   $display("\n TEST FAILLED");
-    //else    $display("\n TEST PASSED");
+    if(number_of_errors)   $display("\n TEST FAILLED");
+    else    $display("\n TEST PASSED");
 
     $display("\n***********************************************************");
     $display(  "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
@@ -91,6 +96,7 @@ module instr_register_test
 //TODO write pointer sa ia valori random intre 0 si 31
  // tbintf.tb_cb.write_pointer <= $unsigned($random)%32; 
     tbintf.write_pointer <= temp++;
+    actual[tbintf.write_pointer] = '{tbintf.opcode,tbintf.operand_a,tbintf.operand_b, 'b0};
   endfunction: randomize_transaction
 
   function void print_transaction;
@@ -109,19 +115,23 @@ module instr_register_test
   endfunction: print_results
 
   
-  function void check_results(operand_t a, operand_t b, opcode_t code, result_t result);
-    result_t expected;
-     case(code) 
-	  	  ZERO  : expected = 'b0;
-        PASSA : expected = a;
-        PASSB : expected = b;
-        ADD   : expected = a+b;
-        SUB   : expected = a-b;
-        MULT  : expected = a*b;
-        DIV   : expected = a/b;
-        MOD   : expected = a%b;
+  function void check_results();
+  foreach(actual[i])begin
+     case(actual[i].opc) 
+	  	  ZERO  : expected[i] = 'b0;
+        PASSA : expected[i] = actual[i].op_a;
+        PASSB : expected[i] = actual[i].op_b;
+        ADD   : expected[i] = actual[i].op_a+actual[i].op_b;
+        SUB   : expected[i] = actual[i].op_a-actual[i].op_b;
+        MULT  : expected[i] = actual[i].op_a*actual[i].op_b;
+        DIV   : expected[i] = actual[i].op_a/actual[i].op_b;
+        MOD   : expected[i] = actual[i].op_a%actual[i].op_b;
 	  endcase
-    if(expected != result) number_of_errors++;
+    if(expected[i] != actual[i].result) begin
+      number_of_errors++;
+       $error("\n i = %0d: opcode = %0d (%s)  operand_a = %0d operand_b = %0d \n expected result = %0d  actual result = %0d \n",i , actual[i].opc, actual[i].opc.name, actual[i].op_a, actual[i].op_b, expected[i],actual[i].result);
+    end
+   end
   endfunction: check_results
 
 endmodule: instr_register_test

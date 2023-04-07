@@ -36,8 +36,9 @@ module instr_register(tb_ifc.DUT tbintf);
         PASSA : result = tbintf.operand_a;
         PASSB : result = tbintf.operand_b;
         ADD   : result = tbintf.operand_a+tbintf.operand_b;
+        //Error to catch (-)
         SUB   : result = tbintf.operand_a+tbintf.operand_b;
-        MULT  : result = tbintf.operand_a+tbintf.operand_b;
+        MULT  : result = tbintf.operand_a*tbintf.operand_b;
         DIV   : result = tbintf.operand_a/tbintf.operand_b;
         MOD   : result = tbintf.operand_a%tbintf.operand_b;
 	  endcase
@@ -51,10 +52,10 @@ module instr_register(tb_ifc.DUT tbintf);
   // assign tbintf.instruction_word = iw_reg[tbintf.read_pointer];  // continuously read from register
 
 // compile with +define+FORCE_LOAD_ERROR to inject a functional bug for verification to catch
-/*`ifdef FORCE_LOAD_ERROR
+`ifdef FORCE_LOAD_ERROR
 initial begin
   force tbintf.operand_b = tbintf.operand_a; // cause wrong value to be loaded into operand_b
 end
 `endif
-*/
+
 endmodule: instr_register

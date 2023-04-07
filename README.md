@@ -37,3 +37,6 @@
 # Lab 6
 - interfata cu modport
 - tools
+
+# Lab 7
+- check_result()
