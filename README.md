@@ -40,3 +40,6 @@
 
 # Lab 7
 - check_result()
+
+# Lab 8
+- coverage

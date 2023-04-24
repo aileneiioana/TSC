@@ -1,0 +1,546 @@
+# do run.do run_test_2.bat 100 3 555
+# 1
+# Model Technology ModelSim Microsemi vlog 10.5c Compiler 2016.07 Jul 21 2016
+# Start time: 19:22:49 on Apr 24,2023
+# vlog -sv -timescale 1ps/1ps -work work -f sources.txt 
+# -- Compiling package instr_register_pkg
+# -- Compiling interface tb_ifc
+# -- Importing package instr_register_pkg
+# -- Compiling module instr_register
+# -- Compiling module instr_register_test
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 19:22:49 on Apr 24,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -quiet -nocoverage "+notimingchecks" "+nowarnTSCALE" -sva top -G/top/test/TEST_NAME=run_test_2.bat -G/top/test/seed=555 -G/top/test/NUMBER_OF_TRANSACTION=100 -G/top/test/RND_CASE=3 
+# Start time: 19:22:49 on Apr 24,2023
+# //  ModelSim Microsemi 10.5c Jul 21 2016
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim Microsemi and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# 
+# 
+# ***********************************************************
+# ***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***
+# ***  NEED TO VISUALLY VERIFY THAT THE OUTPUT VALUES     ***
+# ***  MATCH THE INPUT VALUES FOR EACH REGISTER LOCATION  ***
+# ***********************************************************
+# 
+# Reseting the instruction register..
+# 
+# Writing values to register stack..
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# Writing to register location 8: 
+#   opcode = 1 (PASSA)
+#   operand_a = -12
+#   operand_b = 7
+# 
+# 
+# Reading back the same register locations written..
+# End time: 19:24:59 on Apr 24,2023, Elapsed time: 0:02:10
+# Errors: 0, Warnings: 0
