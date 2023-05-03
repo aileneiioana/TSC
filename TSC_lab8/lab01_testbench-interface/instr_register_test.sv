@@ -23,30 +23,9 @@ module instr_register_test
   import instr_register_pkg::*;
  
   parameter NUMBER_OF_TRANSACTION = 100;
-  parameter int seed = 555;
-  parameter RND_CASE = 0;
-  parameter TEST_NAME = "N/A";
-
-  /* //covergroup declaration
-  covergroup coverage_calc;
-  cov_p1: coverpoint tbintf.operand_a
-                              {
-                                bins op_a_max = {15};
-                                bins op_a_zero = {0};
-                                bins op_a_min = {-15};
-                              }
-  cov_p2: coverpoint tbintf.operand_b 
-                             {
-                                bins op_b_max = {15};
-                                bins op_b_zero = {0};
-                                bins op_b_min = {-15};
-                              }
-  cov_p3: coverpoint tbintf.opcode; 
-  endgroup
-  //cg variable declaration
-  coverage_calc  cov_calc;*/
-
-  int number_of_errors = 0;
+  parameter randomcase = 0;
+  int seed = 555;
+  int number_of_errors_per_test = 0;
   instruction_t actual [0:31];
   result_t expected [0:31];
 
@@ -58,9 +37,6 @@ module instr_register_test
     $display(    "***********************************************************");
 
     $display("\nReseting the instruction register..");
-
-    //cov_calc = new();
-
     tbintf.write_pointer  <= 5'h00;         // initialize write pointer
     tbintf.read_pointer   <= 5'h1F;         // initialize read pointer
     tbintf.load_en        <= 1'b0;          // initialize load control line
@@ -83,22 +59,25 @@ module instr_register_test
       // scoreboard to determine which addresses were written and
       // the expected values to be read back
 
-    // cov_calc.sample();
+      if(randomcase==0 || randomcase==2)
+        tbintf.read_pointer <= i;
+      else if(randomcase==2 || randomcase==3) 
+        tbintf.read_pointer <= $unsigned($random)%32;
+      @(posedge tbintf.test_clk);
 
-      if (RND_CASE == 0 || RND_CASE == 2)
-        @(posedge tbintf.test_clk) tbintf.read_pointer <= i; 
-      else       //TODO read_pointer random 
-        @(posedge tbintf) tbintf.read_pointer <= $unsigned($random)%32;
       actual[tbintf.read_pointer].result = (tbintf.instruction_word.result);
       @(negedge tbintf.test_clk) print_results; 
+      
+     check_results_from_output;
     end
     @(posedge tbintf.test_clk) ;
+    //limitations: just 32 positions/test
+    if(randomcase==0 && NUMBER_OF_TRANSACTION<32)
+      check_results();
 
-     check_results();
-
-     $display("\nErrors : %d", number_of_errors);
-    if(number_of_errors)   $display("\n TEST FAILLED =()");
-    else    $display("\n TEST PASSED =D");
+     $display("\nErrors : %d", number_of_errors_per_test);
+    if(number_of_errors_per_test)   $display("\n TEST FAILLED =( ");
+    else    $display("\n TEST PASSED =D ");
 
     $display("\n***********************************************************");
     $display(  "***  THIS IS NOT A SELF-CHECKING TESTBENCH (YET).  YOU  ***");
@@ -120,9 +99,13 @@ module instr_register_test
     tbintf.operand_a     <= $random(seed)%16;                 // between -15 and 15
     tbintf.operand_b     <= $unsigned($random)%16;            // between 0 and 15
     tbintf.opcode        <= opcode_t'($unsigned($random)%8);  // between 0 and 7, cast to opcode_t type
-//TODO write pointer sa ia valori random intre 0 si 31
-     if (RND_CASE == 0 || RND_CASE == 1) tbintf.write_pointer <=temp++;
-    else tbintf.write_pointer <= $unsigned($random)%32;;
+
+    if(randomcase== 0 || randomcase==1)
+     tbintf.write_pointer <= temp++;
+    else 
+      if(randomcase==2 || randomcase==3)
+       tbintf.write_pointer <= $unsigned($random)%32; 
+
     actual[tbintf.write_pointer] = '{tbintf.opcode,tbintf.operand_a,tbintf.operand_b, 'b0};
   endfunction: randomize_transaction
 
@@ -155,10 +138,25 @@ module instr_register_test
         MOD   : expected[i] = actual[i].op_a%actual[i].op_b;
 	  endcase
     if(expected[i] != actual[i].result) begin
-      number_of_errors++;
+      number_of_errors_per_test++;
        $error("\n i = %0d: opcode = %0d (%s)  operand_a = %0d operand_b = %0d \n expected result = %0d  actual result = %0d \n",i , actual[i].opc, actual[i].opc.name, actual[i].op_a, actual[i].op_b, expected[i],actual[i].result);
     end
    end
   endfunction: check_results
+
+   function void check_results_from_output();
+    result_t exp_result;
+      case(tbintf.instruction_word.opc) 
+          ZERO  : exp_result = 'b0;
+          PASSA : exp_result = tbintf.instruction_word.op_a;
+          PASSB : exp_result = tbintf.instruction_word.op_b;
+          ADD   : exp_result = tbintf.instruction_word.op_a + tbintf.instruction_word.op_b;
+          SUB   : exp_result = tbintf.instruction_word.op_a - tbintf.instruction_word.op_b;
+          MULT  : exp_result = tbintf.instruction_word.op_a * tbintf.instruction_word.op_b;
+          DIV   : exp_result = tbintf.instruction_word.op_a / tbintf.instruction_word.op_b;
+          MOD   : exp_result = tbintf.instruction_word.op_a % tbintf.instruction_word.op_b;
+      endcase
+    if(exp_result != tbintf.instruction_word.result) number_of_errors_per_test++;
+  endfunction: check_results_from_output
 
 endmodule: instr_register_test

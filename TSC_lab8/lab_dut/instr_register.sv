@@ -35,11 +35,11 @@ module instr_register(tb_ifc.DUT tbintf);
 	  	  ZERO  : result = 'b0;
         PASSA : result = tbintf.operand_a;
         PASSB : result = tbintf.operand_b;
-        ADD   : result = tbintf.operand_a+tbintf.operand_b;
-        SUB   : result = tbintf.operand_a-tbintf.operand_b;
-        MULT  : result = tbintf.operand_a*tbintf.operand_b;
-        DIV   : result = tbintf.operand_a/tbintf.operand_b;
-        MOD   : result = tbintf.operand_a%tbintf.operand_b;
+        ADD   : result = tbintf.operand_a + tbintf.operand_b;
+        SUB   : result = tbintf.operand_a - tbintf.operand_b;
+        MULT  : result = tbintf.operand_a * tbintf.operand_b;
+        DIV   : result = tbintf.operand_a / tbintf.operand_b;
+        MOD   : result = tbintf.operand_a % tbintf.operand_b;
 	  endcase
       iw_reg[tbintf.write_pointer] = '{tbintf.opcode,tbintf.operand_a,tbintf.operand_b,result};
 	 

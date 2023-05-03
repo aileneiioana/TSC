@@ -43,3 +43,4 @@
 
 # Lab 8
 - coverage
+- regression
