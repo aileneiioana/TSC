@@ -23,6 +23,7 @@ module instr_register_test
   import instr_register_pkg::*;
  
   parameter NUMBER_OF_TRANSACTION = 100;
+  parameter test_name = "N/A";
   parameter randomcase = 0;
   int seed = 555;
   int number_of_errors_per_test = 0;
@@ -75,6 +76,7 @@ module instr_register_test
     if(randomcase==0 && NUMBER_OF_TRANSACTION<32)
       check_results();
 
+     $display("\n TEST: %s", test_name);
      $display("\nErrors : %d", number_of_errors_per_test);
     if(number_of_errors_per_test)   $display("\n TEST FAILLED =( ");
     else    $display("\n TEST PASSED =D ");
